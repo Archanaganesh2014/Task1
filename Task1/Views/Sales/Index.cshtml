@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Task1.Models.Sales>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h4>Sale</h4>*@
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSold)
+            </th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateSold)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> </td>
+                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a>*@ 
+               <td> <a asp-action="Delete" asp-route-id="@item.Id" class=" btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
